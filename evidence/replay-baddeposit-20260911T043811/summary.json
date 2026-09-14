@@ -1,0 +1,11 @@
+{
+  "status": "business_outcome",
+  "capability_id": "coreserv.open_subaccount",
+  "capability_version": "1.0.0",
+  "run_id": "replay-baddeposit-20260911T043811",
+  "evidence_dir": "evidence/replay-baddeposit-20260911T043811",
+  "steps_completed": 8,
+  "recoveries_applied": [],
+  "outcome_code": "invalid_deposit",
+  "outcome_message": "The supplied initial deposit is not a positive amount."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "capability_id": "coreserv.read_savings_balance",
+  "capability_version": "1.0.0",
+  "run_id": "replay-session-20260911T043807",
+  "evidence_dir": "evidence/replay-session-20260911T043807",
+  "steps_completed": 3,
+  "recoveries_applied": [],
+  "failure": {
+    "kind": "session_expired",
+    "step_id": "s4_member",
+    "expected": "",
+    "observed": "",
+    "detail": "Session/auth timeout detected."
+  }
+}

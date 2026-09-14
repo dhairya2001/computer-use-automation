@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "capability_id": "coreserv.open_money_market_subaccount",
+  "capability_version": "1.0.0",
+  "run_id": "replay-20260914T071254-4742bad4",
+  "evidence_dir": "evidence/replay-20260914T071254-4742bad4",
+  "steps_completed": 9,
+  "recoveries_applied": [],
+  "outputs": {}
+}

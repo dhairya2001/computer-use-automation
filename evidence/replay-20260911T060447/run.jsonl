@@ -1,0 +1,10 @@
+{"ts": "2026-09-11T06:04:47.190334+00:00", "event": "replay_start", "capability_id": "coreserv.get_member_savings_balance", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "passcode": "<secret>", "member_id": "00000"}, "risk_mode": "confirm"}
+{"ts": "2026-09-11T06:04:47.443767+00:00", "event": "step_begin", "step_id": "s1_fill_operator_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T06:04:47.484887+00:00", "event": "step_begin", "step_id": "s2_fill_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T06:04:47.549771+00:00", "event": "step_begin", "step_id": "s3_click_sign_in", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T06:04:47.595704+00:00", "event": "checkpoint", "step_id": "s3_click_sign_in", "kind": "url_contains", "value": "/search", "held": true}
+{"ts": "2026-09-11T06:04:47.616713+00:00", "event": "step_begin", "step_id": "s4_fill_member_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T06:04:47.632445+00:00", "event": "step_begin", "step_id": "s5_click_search", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T06:04:57.761894+00:00", "event": "checkpoint", "step_id": "s5_click_search", "kind": "text_present", "value": "Member Detail", "held": false}
+{"ts": "2026-09-11T06:04:57.765909+00:00", "event": "business_outcome_detected", "code": "member_not_found", "when": "No member record found"}
+{"ts": "2026-09-11T06:04:57.767009+00:00", "event": "replay_end", "status": "business_outcome"}

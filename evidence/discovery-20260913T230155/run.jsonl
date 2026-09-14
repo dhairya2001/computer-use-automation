@@ -1,0 +1,32 @@
+{"ts": "2026-09-13T23:01:56.324368+00:00", "event": "discovery_start", "goal": "Log in with operator op1 and passcode demo, open a new Money Market sub-account for member 22222 with an initial deposit of 500, and reach the confirmation screen", "target": {"app_id": "coreserv", "app_version": null, "base_url": "http://127.0.0.1:5000", "tenant_id": null}, "model": "claude-sonnet-4-5"}
+{"ts": "2026-09-13T23:02:02.573865+00:00", "event": "agent_action", "turn": 0, "action": "plan", "thought": "", "step_id": null}
+{"ts": "2026-09-13T23:02:02.574270+00:00", "event": "plan_applied", "capability_id": "coreserv.open_money_market_subaccount", "inputs": [{"name": "operator_id", "type": "string", "required": true, "description": "Operator login ID", "example": "op1", "secret": false}, {"name": "passcode", "type": "string", "required": true, "description": "Operator passcode", "example": null, "secret": true}, {"name": "member_id", "type": "string", "required": true, "description": "Member ID to open sub-account for", "example": "22222", "secret": false}, {"name": "initial_deposit", "type": "string", "required": true, "description": "Initial deposit amount for the Money Market account", "example": "500", "secret": false}]}
+{"ts": "2026-09-13T23:02:07.008437+00:00", "event": "agent_action", "turn": 1, "action": "fill", "thought": "", "step_id": "s1_fill_operator_id"}
+{"ts": "2026-09-13T23:02:07.068145+00:00", "event": "step_recorded", "step_id": "s1_fill_operator_id", "action": "ActionType.FILL", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:09.120498+00:00", "event": "agent_action", "turn": 2, "action": "fill", "thought": "", "step_id": "s2_fill_passcode"}
+{"ts": "2026-09-13T23:02:09.195955+00:00", "event": "step_recorded", "step_id": "s2_fill_passcode", "action": "ActionType.FILL", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:13.034855+00:00", "event": "agent_action", "turn": 3, "action": "click", "thought": "", "step_id": "s3_click_sign_in"}
+{"ts": "2026-09-13T23:02:21.197164+00:00", "event": "checkpoint", "step_id": "s3_click_sign_in", "kind": "url_contains", "value": "/main", "held": false}
+{"ts": "2026-09-13T23:02:21.197820+00:00", "event": "checkpoint_unverified", "step_id": "s3_click_sign_in", "kind": "url_contains", "value": "/main"}
+{"ts": "2026-09-13T23:02:21.248774+00:00", "event": "step_recorded", "step_id": "s3_click_sign_in", "action": "ActionType.CLICK", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:24.183848+00:00", "event": "agent_action", "turn": 4, "action": "fill", "thought": "", "step_id": "s4_fill_member_id"}
+{"ts": "2026-09-13T23:02:24.233885+00:00", "event": "step_recorded", "step_id": "s4_fill_member_id", "action": "ActionType.FILL", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:27.793142+00:00", "event": "agent_action", "turn": 5, "action": "click", "thought": "", "step_id": "s5_click_search"}
+{"ts": "2026-09-13T23:02:35.876165+00:00", "event": "checkpoint", "step_id": "s5_click_search", "kind": "text_present", "value": "Member 22222", "held": false}
+{"ts": "2026-09-13T23:02:35.876699+00:00", "event": "checkpoint_unverified", "step_id": "s5_click_search", "kind": "text_present", "value": "Member 22222"}
+{"ts": "2026-09-13T23:02:35.924935+00:00", "event": "step_recorded", "step_id": "s5_click_search", "action": "ActionType.CLICK", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:38.909125+00:00", "event": "agent_action", "turn": 6, "action": "click", "thought": "", "step_id": "s6_click_open_subaccount"}
+{"ts": "2026-09-13T23:02:38.959974+00:00", "event": "checkpoint", "step_id": "s6_click_open_subaccount", "kind": "text_present", "value": "Account Type", "held": true}
+{"ts": "2026-09-13T23:02:38.976979+00:00", "event": "step_recorded", "step_id": "s6_click_open_subaccount", "action": "ActionType.CLICK", "checkpoint_verified": true}
+{"ts": "2026-09-13T23:02:42.022819+00:00", "event": "agent_action", "turn": 7, "action": "select", "thought": "", "step_id": "s7_select_money_market"}
+{"ts": "2026-09-13T23:02:42.082264+00:00", "event": "step_recorded", "step_id": "s7_select_money_market", "action": "ActionType.SELECT", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:44.445262+00:00", "event": "agent_action", "turn": 8, "action": "fill", "thought": "", "step_id": "s8_fill_initial_deposit"}
+{"ts": "2026-09-13T23:02:44.485575+00:00", "event": "step_recorded", "step_id": "s8_fill_initial_deposit", "action": "ActionType.FILL", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:02:48.414526+00:00", "event": "agent_action", "turn": 9, "action": "click", "thought": "", "step_id": "s9_click_open_subaccount"}
+{"ts": "2026-09-13T23:02:48.414791+00:00", "event": "risky_action_confirmation_noted", "step_id": "s9_click_open_subaccount", "description": "Click Open Sub-Account button to submit the form"}
+{"ts": "2026-09-13T23:02:56.462464+00:00", "event": "checkpoint", "step_id": "s9_click_open_subaccount", "kind": "text_present", "value": "confirmation", "held": false}
+{"ts": "2026-09-13T23:02:56.462738+00:00", "event": "checkpoint_unverified", "step_id": "s9_click_open_subaccount", "kind": "text_present", "value": "confirmation"}
+{"ts": "2026-09-13T23:02:56.497661+00:00", "event": "step_recorded", "step_id": "s9_click_open_subaccount", "action": "ActionType.CLICK", "checkpoint_verified": false}
+{"ts": "2026-09-13T23:03:00.919648+00:00", "event": "agent_action", "turn": 10, "action": "finish", "thought": "", "step_id": null}
+{"ts": "2026-09-13T23:03:00.923523+00:00", "event": "final_success_check", "held": true, "kind": "text_present", "value": "Sub-account created successfully"}
+{"ts": "2026-09-13T23:03:00.952382+00:00", "event": "evidence_captured", "label": "final_state", "screenshot": "evidence/discovery-20260913T230155/step_09_final_state.png", "dom_snapshot": "evidence/discovery-20260913T230155/step_09_final_state.html"}

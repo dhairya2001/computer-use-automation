@@ -1,0 +1,8 @@
+{"ts": "2026-09-11T04:38:09.007035+00:00", "event": "replay_start", "capability_id": "coreserv.read_savings_balance", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "passcode": "<secret>", "member_id": "12345"}, "risk_mode": "confirm"}
+{"ts": "2026-09-11T04:38:09.629006+00:00", "event": "step_begin", "step_id": "s1_operator", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:09.736284+00:00", "event": "step_begin", "step_id": "s2_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:09.815001+00:00", "event": "step_begin", "step_id": "s3_signin", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T04:38:09.886441+00:00", "event": "checkpoint", "step_id": "s3_signin", "kind": "url_contains", "value": "/search", "held": true}
+{"ts": "2026-09-11T04:38:09.964836+00:00", "event": "step_begin", "step_id": "s4_member", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:10.044471+00:00", "event": "evidence_captured", "label": "element_not_found", "screenshot": "evidence/replay-notfound-hard-20260911T043809/step_04_element_not_found.png", "dom_snapshot": "evidence/replay-notfound-hard-20260911T043809/step_04_element_not_found.html"}
+{"ts": "2026-09-11T04:38:10.103003+00:00", "event": "replay_end", "status": "failed"}

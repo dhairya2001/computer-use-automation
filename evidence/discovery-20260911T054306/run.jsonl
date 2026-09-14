@@ -1,0 +1,21 @@
+{"ts": "2026-09-11T05:43:07.408939+00:00", "event": "discovery_start", "goal": "Log in with operator id op1 and passcode demo, look up member 12345, and read their savings balance", "target": {"app_id": "coreserv", "app_version": null, "base_url": "http://127.0.0.1:5000", "tenant_id": null}, "model": "claude-sonnet-4-5"}
+{"ts": "2026-09-11T05:43:12.299667+00:00", "event": "agent_action", "turn": 0, "action": "plan", "thought": "", "step_id": null}
+{"ts": "2026-09-11T05:43:12.300040+00:00", "event": "plan_applied", "capability_id": "coreserv.get_member_savings_balance", "inputs": [{"name": "operator_id", "type": "string", "required": true, "description": "The operator ID to use for login", "example": "op1", "secret": false}, {"name": "passcode", "type": "string", "required": true, "description": "The passcode for the operator", "example": null, "secret": true}, {"name": "member_id", "type": "string", "required": true, "description": "The member ID to look up", "example": "12345", "secret": false}]}
+{"ts": "2026-09-11T05:43:16.066137+00:00", "event": "agent_action", "turn": 1, "action": "fill", "thought": "", "step_id": "s1_fill_operator_id"}
+{"ts": "2026-09-11T05:43:16.119078+00:00", "event": "step_recorded", "step_id": "s1_fill_operator_id", "action": "ActionType.FILL"}
+{"ts": "2026-09-11T05:43:18.728473+00:00", "event": "agent_action", "turn": 2, "action": "fill", "thought": "", "step_id": "s2_fill_passcode"}
+{"ts": "2026-09-11T05:43:18.795981+00:00", "event": "step_recorded", "step_id": "s2_fill_passcode", "action": "ActionType.FILL"}
+{"ts": "2026-09-11T05:43:22.825574+00:00", "event": "agent_action", "turn": 3, "action": "click", "thought": "", "step_id": "s3_click_sign_in"}
+{"ts": "2026-09-11T05:43:30.998356+00:00", "event": "checkpoint", "step_id": "s3_click_sign_in", "kind": "url_contains", "value": "/menu", "held": false}
+{"ts": "2026-09-11T05:43:31.035116+00:00", "event": "evidence_captured", "label": "action_error", "screenshot": "evidence/discovery-20260911T054306/step_03_action_error.png", "dom_snapshot": "evidence/discovery-20260911T054306/step_03_action_error.html"}
+{"ts": "2026-09-11T05:43:33.805686+00:00", "event": "agent_action", "turn": 4, "action": "fill", "thought": "", "step_id": "s4_fill_member_id"}
+{"ts": "2026-09-11T05:43:33.852537+00:00", "event": "step_recorded", "step_id": "s4_fill_member_id", "action": "ActionType.FILL"}
+{"ts": "2026-09-11T05:43:36.650803+00:00", "event": "agent_action", "turn": 5, "action": "click", "thought": "", "step_id": "s5_click_search"}
+{"ts": "2026-09-11T05:43:36.713336+00:00", "event": "checkpoint", "step_id": "s5_click_search", "kind": "text_present", "value": "Member Detail", "held": true}
+{"ts": "2026-09-11T05:43:36.730555+00:00", "event": "step_recorded", "step_id": "s5_click_search", "action": "ActionType.CLICK"}
+{"ts": "2026-09-11T05:43:42.178258+00:00", "event": "agent_action", "turn": 6, "action": "extract", "thought": "", "step_id": "s6_extract_savings_balance"}
+{"ts": "2026-09-11T05:43:42.186162+00:00", "event": "extracted", "name": "savings_balance", "value": "$4,210.55"}
+{"ts": "2026-09-11T05:43:42.208735+00:00", "event": "step_recorded", "step_id": "s6_extract_savings_balance", "action": "ActionType.EXTRACT"}
+{"ts": "2026-09-11T05:43:46.582092+00:00", "event": "agent_action", "turn": 7, "action": "finish", "thought": "", "step_id": null}
+{"ts": "2026-09-11T05:43:46.586420+00:00", "event": "final_success_check", "held": true, "kind": "text_present", "value": "Savings Balance"}
+{"ts": "2026-09-11T05:43:46.611332+00:00", "event": "evidence_captured", "label": "final_state", "screenshot": "evidence/discovery-20260911T054306/step_06_final_state.png", "dom_snapshot": "evidence/discovery-20260911T054306/step_06_final_state.html"}

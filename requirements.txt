@@ -1,0 +1,10 @@
+# Core
+pydantic>=2.6,<3
+playwright>=1.44
+flask>=3.0
+
+# LLM provider (only needed for a REAL discovery run; replay never needs it)
+anthropic>=0.39
+
+# Dev / test
+pytest>=8.0

@@ -1,0 +1,11 @@
+{
+  "status": "business_outcome",
+  "capability_id": "coreserv.read_savings_balance",
+  "capability_version": "1.0.0",
+  "run_id": "replay-notfound-20260911T043804",
+  "evidence_dir": "evidence/replay-notfound-20260911T043804",
+  "steps_completed": 5,
+  "recoveries_applied": [],
+  "outcome_code": "member_not_found",
+  "outcome_message": "No member exists for the supplied id."
+}

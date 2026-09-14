@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head><title>CoreServ 7.2 - Member Detail</title></head>
+<body bgcolor="#f0f0f0" style="font-family:Verdana,Arial,sans-serif;font-size:12px">
+
+{% if show_dialog %}
+<!-- Unexpected interstitial dialog (in-page modal, not a native JS dialog).
+     Legacy apps pop these for surveys, notices, "acknowledge" prompts, etc.
+     Replay must detect and dismiss it as a RECOVERABLE condition. -->
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4)">
+  <table width="380" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffcc" style="margin-top:120px;border:2px solid #cc9900">
+    <tr bgcolor="#cc9900"><td style="padding:6px;color:#fff;font-weight:bold">System Notice</td></tr>
+    <tr><td style="padding:16px">
+      A scheduled maintenance window is upcoming. Please acknowledge to continue.<br><br>
+      <form method="get" action="">
+        <input type="hidden" name="ack" value="1">
+        <input type="submit" value="Acknowledge">
+      </form>
+    </td></tr>
+  </table>
+</div>
+{% endif %}
+
+<table width="760" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="margin-top:24px;border:1px solid #999">
+  <tr bgcolor="#003366"><td colspan="2" style="padding:8px;color:#fff;font-weight:bold">CoreServ&nbsp;7.2 &mdash; Member Detail</td></tr>
+  <tr><td colspan="2" style="padding:16px">
+    <!-- Data shown in a borderless table with label cells; no ids anywhere. -->
+    <table cellpadding="4" cellspacing="0" border="0" width="100%">
+      <tr><td width="180" style="color:#666">Member ID</td><td><b>{{ m.member_id }}</b></td></tr>
+      <tr><td style="color:#666">Member Name</td><td>{{ m.name }}</td></tr>
+      <tr><td style="color:#666">Status</td><td>{{ m.status }}</td></tr>
+      <tr bgcolor="#eef4fb"><td style="color:#666">Savings Balance</td><td><b>{{ m.savings_balance }}</b></td></tr>
+      <tr><td style="color:#666">Checking Balance</td><td>{{ m.checking_balance }}</td></tr>
+    </table>
+    <!-- Sub-Accounts on file (persisted in memory for this session). -->
+    <div style="margin-top:20px;font-weight:bold;border-top:1px solid #ccc;padding-top:12px">Sub-Accounts</div>
+    {% if subaccounts %}
+    <table cellpadding="4" cellspacing="0" border="1" bordercolor="#cccccc" width="100%" style="border-collapse:collapse;margin-top:6px">
+      <tr bgcolor="#eef4fb"><td>Sub-Account ID</td><td>Type</td><td>Initial Deposit</td><td>Opened</td></tr>
+      {% for sa in subaccounts %}
+      <tr><td>{{ sa.id }}</td><td>{{ sa.type }}</td><td>{{ sa.deposit }}</td><td>{{ sa.opened_at }}</td></tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p style="color:#666;margin-top:6px">No sub-accounts on file.</p>
+    {% endif %}
+
+    <p style="padding-top:14px">
+      <!-- Action link identified by its visible text, not an id. -->
+      <a href="/member/{{ m.member_id }}/new-subaccount">Open New Sub-Account</a>
+    </p>
+  </td></tr>
+</table>
+</body>
+</html>

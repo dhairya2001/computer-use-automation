@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "capability_id": "coreserv.read_savings_balance",
+  "capability_version": "1.0.0",
+  "run_id": "replay-recovery-20260911T043806",
+  "evidence_dir": "evidence/replay-recovery-20260911T043806",
+  "steps_completed": 6,
+  "recoveries_applied": [
+    "dismiss_system_notice"
+  ],
+  "outputs": {
+    "savings_balance": "$4,210.55"
+  }
+}

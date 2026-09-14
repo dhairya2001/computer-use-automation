@@ -1,0 +1,2 @@
+{"ts": "2026-09-13T23:00:43.042638+00:00", "event": "discovery_start", "goal": "Log in with operator op1 and passcode demo, open a new Money Market sub-account for member 22222 with an initial deposit of 500, and reach the confirmation screen", "target": {"app_id": "coreserv", "app_version": null, "base_url": "http://127.0.0.1:5000", "tenant_id": null}, "model": "claude-sonnet-4-5"}
+{"ts": "2026-09-13T23:00:43.109660+00:00", "event": "discovery_failed", "message": "LLM provider error: ANTHROPIC_API_KEY is not set (needed only for discovery)."}

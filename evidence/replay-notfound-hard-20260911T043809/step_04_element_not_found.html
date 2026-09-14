@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><title>CoreServ 7.2 - Member Lookup</title></head>
+<body bgcolor="#f0f0f0" style="font-family:Verdana,Arial,sans-serif;font-size:12px">
+<table width="760" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="margin-top:24px;border:1px solid #999">
+  <tbody><tr bgcolor="#003366"><td style="padding:8px;color:#fff;font-weight:bold">CoreServ&nbsp;7.2 — Member Lookup</td></tr>
+  <tr><td style="padding:20px">
+    <table cellpadding="4" cellspacing="0" border="0">
+      <form method="post" action="/search"></form>
+      <tbody><tr><td colspan="2" style="font-weight:bold;padding-bottom:8px">Look up a member</td></tr>
+      
+      <tr>
+        <td>Member ID:</td>
+        <!-- No id/testid; identified only by name + adjacent label text. -->
+        <td><input type="text" name="member_id" size="18" style=""></td>
+      </tr>
+      <!-- Hidden field lets a replay request a specific injected runtime condition. -->
+      <input type="hidden" name="inject" value="" style="">
+      <tr><td colspan="2" style="padding-top:10px"><input type="submit" value="Search" style=""></td></tr>
+      
+    </tbody></table>
+    <p style="color:#666;font-size:11px">Try 12345 or 22222 (exist), 00000 (not found), 99999 (restricted).</p>
+  </td></tr>
+</tbody></table>
+
+</body></html>

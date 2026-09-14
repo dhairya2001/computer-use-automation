@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0",
+  "capability": {
+    "id": "coreserv.get_member_savings_balance",
+    "name": "Get Member Savings Balance",
+    "description": "Logs into CoreServ, looks up a member by ID, and retrieves their savings balance",
+    "version": "1.0.0",
+    "status": "draft"
+  },
+  "target": {
+    "app_id": "coreserv",
+    "app_version": null,
+    "base_url": "http://127.0.0.1:5000",
+    "tenant_id": null
+  },
+  "inputs": [
+    {
+      "name": "operator_id",
+      "type": "string",
+      "required": true,
+      "description": "The operator ID to use for login",
+      "example": "op1",
+      "secret": false
+    },
+    {
+      "name": "passcode",
+      "type": "string",
+      "required": true,
+      "description": "The passcode for the operator",
+      "example": null,
+      "secret": true
+    },
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "The member ID to look up",
+      "example": "12345",
+      "secret": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "savings_balance",
+      "type": "string",
+      "description": "The savings account balance for the member, including currency symbol"
+    }
+  ],
+  "steps": [
+    {
+      "id": "s1_fill_operator_id",
+      "action": "fill",
+      "description": "Fill in the operator ID field",
+      "target": {
+        "description": "Operator ID input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "operator_id",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=text][name='operator_id']",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "This is a legacy form with no accessible names. The name_attr 'operator_id' is stable and semantically meaningful. CSS fallback provides additional robustness by combining type and name attributes."
+      },
+      "url": null,
+      "value": "{{operator_id}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s2_fill_passcode",
+      "action": "fill",
+      "description": "Fill in the passcode field",
+      "target": {
+        "description": "Passcode input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "passcode",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=password][name='passcode']",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "This is a legacy form with no accessible names. The name_attr 'passcode' is stable and semantically meaningful. CSS fallback provides additional robustness by combining type and name attributes."
+      },
+      "url": null,
+      "value": "{{passcode}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s3_click_sign_in",
+      "action": "click",
+      "description": "Click the Sign In button to submit the login form",
+      "target": {
+        "description": "Sign In button",
+        "primary": {
+          "strategy": "role",
+          "value": "Sign In",
+          "role": "button",
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=submit]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Submit button exposes accessible name 'Sign In' via its value; css submit as fallback."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": {
+        "kind": "url_contains",
+        "value": "/search",
+        "description": "Reached the member lookup screen after login"
+      },
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s4_fill_member_id",
+      "action": "fill",
+      "description": "Fill in the member ID to search for",
+      "target": {
+        "description": "Member ID input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "member_id",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=text][name='member_id']",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "This is a legacy form with no accessible names. The name_attr 'member_id' is stable and semantically meaningful. CSS fallback provides additional robustness by combining type and name attributes."
+      },
+      "url": null,
+      "value": "{{member_id}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s5_click_search",
+      "action": "click",
+      "description": "Click the Search button to look up the member",
+      "target": {
+        "description": "Search button",
+        "primary": {
+          "strategy": "role",
+          "value": "Search",
+          "role": "button",
+          "exact": true
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=submit]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "The Search button has an accessible role and name, making it the most stable target. The CSS fallback targets the submit input as an alternative."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": {
+        "kind": "text_present",
+        "value": "Member Detail",
+        "description": "After successful search, we should see the member detail page"
+      },
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s6_extract_savings_balance",
+      "action": "extract",
+      "description": "Extract the savings balance from the member detail page",
+      "target": {
+        "description": "Savings Balance value cell",
+        "primary": {
+          "strategy": "xpath",
+          "value": "//td[normalize-space()='Savings Balance']/following-sibling::td[1]",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "table tr:has(td:contains('Savings Balance')) td:nth-child(2)",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Using xpath anchored on the visible 'Savings Balance' label text is robust because it relies on semantic meaning rather than position. This is the recommended approach for extracting values from legacy tables without stable identifiers."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": "savings_balance",
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    }
+  ],
+  "success": {
+    "kind": "text_present",
+    "value": "Savings Balance",
+    "description": "Successfully reached the member detail page and extracted the savings balance"
+  },
+  "business_outcomes": [
+    {
+      "code": "member_not_found",
+      "when": {
+        "kind": "text_present",
+        "value": "No member record found",
+        "description": ""
+      },
+      "message": "No member exists for the given ID",
+      "terminal": true
+    },
+    {
+      "code": "member_restricted",
+      "when": {
+        "kind": "text_present",
+        "value": "Permission denied",
+        "description": ""
+      },
+      "message": "Access to this member record is restricted",
+      "terminal": true
+    },
+    {
+      "code": "invalid_credentials",
+      "when": {
+        "kind": "text_present",
+        "value": "Invalid operator credentials",
+        "description": ""
+      },
+      "message": "Login failed due to invalid credentials",
+      "terminal": true
+    }
+  ],
+  "recoveries": [],
+  "policy": {
+    "allowed_action_types": [
+      "goto",
+      "click",
+      "fill",
+      "select",
+      "press",
+      "wait_for",
+      "extract",
+      "assert",
+      "dismiss_if_present"
+    ],
+    "allowed_url_prefixes": [
+      "http://127.0.0.1:5000/"
+    ],
+    "require_approval_for_risky": true
+  },
+  "provenance": {
+    "created_at": "2026-09-11T05:43:46.586766+00:00",
+    "created_by": "discovery-agent",
+    "model": "claude-sonnet-4-5",
+    "discovery_run_id": "discovery-20260911T054306",
+    "notes": "Goal: Log in with operator id op1 and passcode demo, look up member 12345, and read their savings balance"
+  }
+}

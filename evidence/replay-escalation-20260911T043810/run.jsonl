@@ -1,0 +1,22 @@
+{"ts": "2026-09-11T04:38:10.156828+00:00", "event": "replay_start", "capability_id": "coreserv.open_subaccount", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "passcode": "<secret>", "member_id": "12345", "account_type": "Money Market", "initial_deposit": "500"}, "risk_mode": "confirm"}
+{"ts": "2026-09-11T04:38:10.823086+00:00", "event": "step_begin", "step_id": "s1_operator", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:10.917621+00:00", "event": "step_begin", "step_id": "s2_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.001221+00:00", "event": "step_begin", "step_id": "s3_signin", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.070329+00:00", "event": "checkpoint", "step_id": "s3_signin", "kind": "url_contains", "value": "/search", "held": true}
+{"ts": "2026-09-11T04:38:11.147209+00:00", "event": "step_begin", "step_id": "s4_member", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.215900+00:00", "event": "step_begin", "step_id": "s5_search", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.286192+00:00", "event": "checkpoint", "step_id": "s5_search", "kind": "url_contains", "value": "/member/", "held": true}
+{"ts": "2026-09-11T04:38:11.367847+00:00", "event": "step_begin", "step_id": "s6_open", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.408551+00:00", "event": "checkpoint", "step_id": "s6_open", "kind": "url_contains", "value": "/new-subaccount", "held": true}
+{"ts": "2026-09-11T04:38:11.482936+00:00", "event": "step_begin", "step_id": "s7_type", "action": "select", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.576133+00:00", "event": "step_begin", "step_id": "s8_deposit", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:11.649215+00:00", "event": "escalation_raised", "capability_id": "coreserv.open_subaccount", "goal": "Open a new sub-account for a member and reach the confirmation screen.", "current_step": "s9_submit", "reason": "Risky/irreversible step 'Open the sub-account (irreversible)' requires human confirmation.", "current_url": "http://127.0.0.1:5000/member/12345/new-subaccount"}
+{"ts": "2026-09-11T04:38:11.707015+00:00", "event": "evidence_captured", "label": "escalation", "screenshot": "evidence/replay-escalation-20260911T043810/step_08_escalation.png", "dom_snapshot": "evidence/replay-escalation-20260911T043810/step_08_escalation.html"}
+{"ts": "2026-09-11T04:38:11.707221+00:00", "event": "control_transfer", "holder": "human", "reason": "Risky/irreversible step 'Open the sub-account (irreversible)' requires human confirmation."}
+{"ts": "2026-09-11T04:38:11.707373+00:00", "event": "human_action", "intervention_id": "int-dda60837", "description": "operator reviewed and approved the irreversible sub-account creation"}
+{"ts": "2026-09-11T04:38:11.707433+00:00", "event": "control_transfer", "holder": "automation", "reason": "handoff complete"}
+{"ts": "2026-09-11T04:38:11.707486+00:00", "event": "escalation_resolved", "status": "resolved", "actions": ["operator reviewed and approved the irreversible sub-account creation"]}
+{"ts": "2026-09-11T04:38:11.707542+00:00", "event": "step_begin", "step_id": "s9_submit", "action": "click", "risk": "risky"}
+{"ts": "2026-09-11T04:38:11.791286+00:00", "event": "checkpoint", "step_id": "s9_submit", "kind": "text_present", "value": "Sub-account created successfully", "held": true}
+{"ts": "2026-09-11T04:38:11.852207+00:00", "event": "success_check", "kind": "text_present", "value": "Sub-account created successfully", "held": true}
+{"ts": "2026-09-11T04:38:11.904293+00:00", "event": "replay_end", "status": "success"}

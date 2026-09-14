@@ -1,0 +1,12 @@
+{"ts": "2026-09-14T04:40:18.956976+00:00", "event": "replay_start", "capability_id": "coreserv.open_money_market_subaccount", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "member_id": "12345", "initial_deposit": "250", "passcode": "<secret>"}, "risk_mode": "confirm"}
+{"ts": "2026-09-14T04:40:19.591699+00:00", "event": "step_begin", "step_id": "s1_fill_operator_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.644274+00:00", "event": "step_begin", "step_id": "s2_fill_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.687051+00:00", "event": "step_begin", "step_id": "s3_click_sign_in", "action": "click", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.770575+00:00", "event": "step_begin", "step_id": "s4_fill_member_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.786660+00:00", "event": "step_begin", "step_id": "s5_click_search", "action": "click", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.855620+00:00", "event": "step_begin", "step_id": "s6_click_open_subaccount", "action": "click", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.894438+00:00", "event": "checkpoint", "step_id": "s6_click_open_subaccount", "kind": "text_present", "value": "Account Type", "held": true}
+{"ts": "2026-09-14T04:40:19.920563+00:00", "event": "step_begin", "step_id": "s7_select_money_market", "action": "select", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.953200+00:00", "event": "step_begin", "step_id": "s8_fill_initial_deposit", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-14T04:40:19.987069+00:00", "event": "escalation_unavailable", "reason": "Risky/irreversible step 'Click Open Sub-Account button to submit the form' requires human confirmation."}
+{"ts": "2026-09-14T04:40:19.987308+00:00", "event": "replay_end", "status": "failed"}

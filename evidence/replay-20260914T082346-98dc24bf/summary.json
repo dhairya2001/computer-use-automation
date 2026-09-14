@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "capability_id": "coreserv.open_money_market_subaccount",
+  "capability_version": "1.0.0",
+  "run_id": "replay-20260914T082346-98dc24bf",
+  "evidence_dir": "evidence/replay-20260914T082346-98dc24bf",
+  "steps_completed": 8,
+  "recoveries_applied": [],
+  "failure": {
+    "kind": "needs_human",
+    "step_id": "s9_click_open_subaccount",
+    "expected": "",
+    "observed": "",
+    "detail": "Human aborted: operator aborted at console"
+  }
+}

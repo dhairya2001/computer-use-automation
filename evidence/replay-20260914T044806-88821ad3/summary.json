@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "capability_id": "coreserv.get_member_savings_balance",
+  "capability_version": "1.0.0",
+  "run_id": "replay-20260914T044806-88821ad3",
+  "evidence_dir": "evidence/replay-20260914T044806-88821ad3",
+  "steps_completed": 6,
+  "recoveries_applied": [],
+  "outputs": {
+    "savings_balance": "$4,210.55"
+  }
+}

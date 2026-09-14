@@ -1,0 +1,8 @@
+{"ts": "2026-09-11T04:38:07.984851+00:00", "event": "replay_start", "capability_id": "coreserv.read_savings_balance", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "passcode": "<secret>", "member_id": "12345"}, "risk_mode": "confirm"}
+{"ts": "2026-09-11T04:38:08.569020+00:00", "event": "step_begin", "step_id": "s1_operator", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:08.653959+00:00", "event": "step_begin", "step_id": "s2_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:08.730949+00:00", "event": "step_begin", "step_id": "s3_signin", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T04:38:08.805675+00:00", "event": "checkpoint", "step_id": "s3_signin", "kind": "url_contains", "value": "/search", "held": true}
+{"ts": "2026-09-11T04:38:08.880659+00:00", "event": "step_begin", "step_id": "s4_member", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T04:38:08.939595+00:00", "event": "evidence_captured", "label": "session_expired", "screenshot": "evidence/replay-session-20260911T043807/step_04_session_expired.png", "dom_snapshot": "evidence/replay-session-20260911T043807/step_04_session_expired.html"}
+{"ts": "2026-09-11T04:38:08.939921+00:00", "event": "replay_end", "status": "failed"}

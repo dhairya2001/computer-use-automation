@@ -1,0 +1,12 @@
+{"ts": "2026-09-11T06:04:13.842495+00:00", "event": "replay_start", "capability_id": "coreserv.get_member_savings_balance", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "passcode": "<secret>", "member_id": "12345"}, "risk_mode": "confirm"}
+{"ts": "2026-09-11T06:04:14.487628+00:00", "event": "step_begin", "step_id": "s1_fill_operator_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T06:04:14.538681+00:00", "event": "step_begin", "step_id": "s2_fill_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T06:04:14.583480+00:00", "event": "step_begin", "step_id": "s3_click_sign_in", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T06:04:14.632947+00:00", "event": "checkpoint", "step_id": "s3_click_sign_in", "kind": "url_contains", "value": "/search", "held": true}
+{"ts": "2026-09-11T06:04:14.666565+00:00", "event": "step_begin", "step_id": "s4_fill_member_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-11T06:04:14.699606+00:00", "event": "step_begin", "step_id": "s5_click_search", "action": "click", "risk": "safe"}
+{"ts": "2026-09-11T06:04:14.754145+00:00", "event": "checkpoint", "step_id": "s5_click_search", "kind": "text_present", "value": "Member Detail", "held": true}
+{"ts": "2026-09-11T06:04:14.767249+00:00", "event": "step_begin", "step_id": "s6_extract_savings_balance", "action": "extract", "risk": "safe"}
+{"ts": "2026-09-11T06:04:14.769992+00:00", "event": "extracted", "name": "savings_balance", "value": "$4,210.55"}
+{"ts": "2026-09-11T06:04:14.783152+00:00", "event": "success_check", "kind": "text_present", "value": "Savings Balance", "held": true}
+{"ts": "2026-09-11T06:04:14.798565+00:00", "event": "replay_end", "status": "success"}

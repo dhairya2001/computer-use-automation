@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "capability_id": "coreserv.open_subaccount",
+  "capability_version": "1.0.0",
+  "run_id": "replay-escalation-20260911T043810",
+  "evidence_dir": "evidence/replay-escalation-20260911T043810",
+  "steps_completed": 9,
+  "recoveries_applied": [],
+  "outputs": {}
+}

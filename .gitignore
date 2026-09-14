@@ -1,0 +1,47 @@
+# ---- Secrets (never commit) ----
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+
+# ---- Playwright ----
+playwright-report/
+test-results/
+
+# ---- Runtime scratch (committed evidence is intentional; scratch is not) ----
+evidence/_scratch/
+*.log
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Runtime data written by the mock app (not committed)
+subaccounts.json
+interventions/
+proposals/
+BUGS.txt
+COVERAGE.txt
+HOW_TO_RUN.txt

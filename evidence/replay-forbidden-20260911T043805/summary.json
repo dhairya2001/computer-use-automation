@@ -1,0 +1,11 @@
+{
+  "status": "business_outcome",
+  "capability_id": "coreserv.read_savings_balance",
+  "capability_version": "1.0.0",
+  "run_id": "replay-forbidden-20260911T043805",
+  "evidence_dir": "evidence/replay-forbidden-20260911T043805",
+  "steps_completed": 5,
+  "recoveries_applied": [],
+  "outcome_code": "permission_denied",
+  "outcome_message": "Operator role is not authorized for this record."
+}

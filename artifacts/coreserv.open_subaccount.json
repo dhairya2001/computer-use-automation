@@ -1,0 +1,398 @@
+{
+  "schema_version": "1.0",
+  "capability": {
+    "id": "coreserv.open_money_market_subaccount",
+    "name": "Open Money Market Sub-Account",
+    "description": "Log in to CoreServ, navigate to a member's account, open a new Money Market sub-account with an initial deposit, and reach the confirmation screen",
+    "version": "1.0.0",
+    "status": "draft"
+  },
+  "target": {
+    "app_id": "coreserv",
+    "app_version": null,
+    "base_url": "http://127.0.0.1:5000",
+    "tenant_id": null
+  },
+  "inputs": [
+    {
+      "name": "operator_id",
+      "type": "string",
+      "required": true,
+      "description": "Operator login ID",
+      "example": "op1",
+      "secret": false
+    },
+    {
+      "name": "passcode",
+      "type": "string",
+      "required": true,
+      "description": "Operator passcode",
+      "example": null,
+      "secret": true
+    },
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "Member ID to open sub-account for",
+      "example": "22222",
+      "secret": false
+    },
+    {
+      "name": "initial_deposit",
+      "type": "string",
+      "required": true,
+      "description": "Initial deposit amount for the Money Market account",
+      "example": "500",
+      "secret": false
+    }
+  ],
+  "outputs": [],
+  "steps": [
+    {
+      "id": "s1_fill_operator_id",
+      "action": "fill",
+      "description": "Fill in operator ID field",
+      "target": {
+        "description": "Operator ID input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "operator_id",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=text]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Legacy form with no accessible names. Using name_attr as primary since it's semantically meaningful. CSS fallback targets the text input."
+      },
+      "url": null,
+      "value": "{{operator_id}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s2_fill_passcode",
+      "action": "fill",
+      "description": "Fill in passcode field",
+      "target": {
+        "description": "Passcode input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "passcode",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=password]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Legacy form with no accessible names. Using name_attr as primary since it's semantically meaningful. CSS fallback targets the password input type."
+      },
+      "url": null,
+      "value": "{{passcode}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s3_click_sign_in",
+      "action": "click",
+      "description": "Click Sign In button to log in",
+      "target": {
+        "description": "Sign In button",
+        "primary": {
+          "strategy": "role",
+          "value": "Sign In",
+          "role": "button",
+          "exact": true
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=submit]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Button has accessible name 'Sign In'. Using role+name as primary for robustness. Fallback uses submit input type."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s4_fill_member_id",
+      "action": "fill",
+      "description": "Fill in member ID to search",
+      "target": {
+        "description": "Member ID input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "member_id",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=text]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Legacy form with no accessible names. Using name_attr 'member_id' as primary since it's semantically meaningful. CSS fallback targets the text input."
+      },
+      "url": null,
+      "value": "{{member_id}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s5_click_search",
+      "action": "click",
+      "description": "Click Search button to look up member",
+      "target": {
+        "description": "Search button",
+        "primary": {
+          "strategy": "role",
+          "value": "Search",
+          "role": "button",
+          "exact": true
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=submit]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Button has accessible name 'Search'. Using role+name as primary for robustness. Fallback uses submit input type."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s6_click_open_subaccount",
+      "action": "click",
+      "description": "Click link to open new sub-account",
+      "target": {
+        "description": "Open New Sub-Account link",
+        "primary": {
+          "strategy": "role",
+          "value": "Open New Sub-Account",
+          "role": "link",
+          "exact": true
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "a[href*='new-subaccount']",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Link has accessible name 'Open New Sub-Account'. Using role+name as primary for robustness. Fallback uses href pattern matching."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": {
+        "kind": "text_present",
+        "value": "Account Type",
+        "description": "New sub-account form loaded"
+      },
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s7_select_money_market",
+      "action": "select",
+      "description": "Select Money Market as account type",
+      "target": {
+        "description": "Account Type dropdown",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "account_type",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "select",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Legacy form with no accessible name on the select element. Using name_attr 'account_type' as primary since it's semantically meaningful. CSS fallback targets the select element."
+      },
+      "url": null,
+      "value": "Money Market",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s8_fill_initial_deposit",
+      "action": "fill",
+      "description": "Fill in initial deposit amount",
+      "target": {
+        "description": "Initial Deposit input field",
+        "primary": {
+          "strategy": "name_attr",
+          "value": "initial_deposit",
+          "role": null,
+          "exact": false
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=text]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Legacy form with no accessible name. Using name_attr 'initial_deposit' as primary since it's semantically meaningful. CSS fallback targets the text input."
+      },
+      "url": null,
+      "value": "{{initial_deposit}}",
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "safe",
+      "timeout_ms": 10000,
+      "optional": false
+    },
+    {
+      "id": "s9_click_open_subaccount",
+      "action": "click",
+      "description": "Click Open Sub-Account button to submit the form",
+      "target": {
+        "description": "Open Sub-Account button",
+        "primary": {
+          "strategy": "role",
+          "value": "Open Sub-Account",
+          "role": "button",
+          "exact": true
+        },
+        "fallbacks": [
+          {
+            "strategy": "css",
+            "value": "input[type=submit]",
+            "role": null,
+            "exact": false
+          }
+        ],
+        "reasoning": "Button has accessible name 'Open Sub-Account'. Using role+name as primary for robustness. Fallback uses submit input type."
+      },
+      "url": null,
+      "value": null,
+      "extract_as": null,
+      "extract_attr": null,
+      "checkpoint": null,
+      "risk": "risky",
+      "timeout_ms": 10000,
+      "optional": false
+    }
+  ],
+  "success": {
+    "kind": "text_present",
+    "value": "Sub-account created successfully",
+    "description": "Reached the confirmation screen showing the sub-account was created"
+  },
+  "business_outcomes": [
+    {
+      "code": "member_not_found",
+      "when": {
+        "kind": "text_present",
+        "value": "Member not found",
+        "description": ""
+      },
+      "message": "No member exists for the given ID",
+      "terminal": true
+    },
+    {
+      "code": "permission_denied",
+      "when": {
+        "kind": "text_present",
+        "value": "Permission denied",
+        "description": ""
+      },
+      "message": "Operator not authorized to access this member",
+      "terminal": true
+    },
+    {
+      "code": "insufficient_funds",
+      "when": {
+        "kind": "text_present",
+        "value": "insufficient",
+        "description": ""
+      },
+      "message": "Initial deposit amount exceeds available funds",
+      "terminal": true
+    }
+  ],
+  "recoveries": [],
+  "policy": {
+    "allowed_action_types": [
+      "goto",
+      "click",
+      "fill",
+      "select",
+      "press",
+      "wait_for",
+      "extract",
+      "assert",
+      "dismiss_if_present"
+    ],
+    "allowed_url_prefixes": [
+      "http://127.0.0.1:5000/"
+    ],
+    "require_approval_for_risky": true
+  },
+  "provenance": {
+    "created_at": "2026-09-13T23:03:00.923857+00:00",
+    "created_by": "discovery-agent",
+    "model": "claude-sonnet-4-5",
+    "discovery_run_id": "discovery-20260913T230155",
+    "notes": "Goal: Log in with operator op1 and passcode demo, open a new Money Market sub-account for member 22222 with an initial deposit of 500, and reach the confirmation screen"
+  }
+}

@@ -1,0 +1,20 @@
+{"ts": "2026-09-13T23:05:30.978448+00:00", "event": "replay_start", "capability_id": "coreserv.open_money_market_subaccount", "capability_version": "1.0.0", "status": "draft", "params": {"operator_id": "op1", "passcode": "<secret>", "member_id": "12345", "initial_deposit": "250"}, "risk_mode": "confirm"}
+{"ts": "2026-09-13T23:05:31.663575+00:00", "event": "step_begin", "step_id": "s1_fill_operator_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-13T23:05:31.718755+00:00", "event": "step_begin", "step_id": "s2_fill_passcode", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-13T23:05:31.781839+00:00", "event": "step_begin", "step_id": "s3_click_sign_in", "action": "click", "risk": "safe"}
+{"ts": "2026-09-13T23:05:31.880020+00:00", "event": "step_begin", "step_id": "s4_fill_member_id", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-13T23:05:31.929643+00:00", "event": "step_begin", "step_id": "s5_click_search", "action": "click", "risk": "safe"}
+{"ts": "2026-09-13T23:05:31.996710+00:00", "event": "step_begin", "step_id": "s6_click_open_subaccount", "action": "click", "risk": "safe"}
+{"ts": "2026-09-13T23:05:32.034977+00:00", "event": "checkpoint", "step_id": "s6_click_open_subaccount", "kind": "text_present", "value": "Account Type", "held": true}
+{"ts": "2026-09-13T23:05:32.061364+00:00", "event": "step_begin", "step_id": "s7_select_money_market", "action": "select", "risk": "safe"}
+{"ts": "2026-09-13T23:05:32.077747+00:00", "event": "step_begin", "step_id": "s8_fill_initial_deposit", "action": "fill", "risk": "safe"}
+{"ts": "2026-09-13T23:05:32.095042+00:00", "event": "escalation_raised", "capability_id": "coreserv.open_money_market_subaccount", "goal": "Log in to CoreServ, navigate to a member's account, open a new Money Market sub-account with an initial deposit, and reach the confirmation screen", "current_step": "s9_click_open_subaccount", "reason": "Risky/irreversible step 'Click Open Sub-Account button to submit the form' requires human confirmation.", "current_url": "http://127.0.0.1:5000/member/12345/new-subaccount"}
+{"ts": "2026-09-13T23:05:32.110870+00:00", "event": "evidence_captured", "label": "escalation", "screenshot": "evidence/replay-20260913T230530/step_08_escalation.png", "dom_snapshot": "evidence/replay-20260913T230530/step_08_escalation.html"}
+{"ts": "2026-09-13T23:05:32.111103+00:00", "event": "intervention_enqueued", "intervention_id": "int-13f21bba", "capability_id": "coreserv.open_money_market_subaccount", "step": "s9_click_open_subaccount", "reason": "Risky/irreversible step 'Click Open Sub-Account button to submit the form' requires human confirmation.", "inbox": "interventions/int-13f21bba.json"}
+{"ts": "2026-09-13T23:05:32.111158+00:00", "event": "control_transfer", "holder": "human", "reason": "Risky/irreversible step 'Click Open Sub-Account button to submit the form' requires human confirmation."}
+{"ts": "2026-09-13T23:05:32.111199+00:00", "event": "human_action", "intervention_id": "int-13f21bba", "description": "operator acknowledged and completed the blocked step"}
+{"ts": "2026-09-13T23:05:32.111236+00:00", "event": "control_transfer", "holder": "automation", "reason": "handoff complete"}
+{"ts": "2026-09-13T23:05:32.111374+00:00", "event": "escalation_resolved", "status": "resolved", "actions": ["operator acknowledged and completed the blocked step"]}
+{"ts": "2026-09-13T23:05:32.111411+00:00", "event": "step_begin", "step_id": "s9_click_open_subaccount", "action": "click", "risk": "risky"}
+{"ts": "2026-09-13T23:05:32.179486+00:00", "event": "success_check", "kind": "text_present", "value": "Sub-account created successfully", "held": true}
+{"ts": "2026-09-13T23:05:32.193510+00:00", "event": "replay_end", "status": "success"}

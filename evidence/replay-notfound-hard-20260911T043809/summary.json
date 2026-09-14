@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "capability_id": "coreserv.read_savings_balance",
+  "capability_version": "1.0.0",
+  "run_id": "replay-notfound-hard-20260911T043809",
+  "evidence_dir": "evidence/replay-notfound-hard-20260911T043809",
+  "steps_completed": 3,
+  "recoveries_applied": [],
+  "failure": {
+    "kind": "element_not_found",
+    "step_id": "s4_member",
+    "expected": "resolve control: Member ID field",
+    "observed": "url=http://127.0.0.1:5000/search title='CoreServ 7.2 - Member Lookup' text='CoreServ 7.2 \u2014 Member Lookup Look up a member Member ID: Try 12345 or 22222 (exist), 00000 (not found), 99999 (restricted).'",
+    "detail": "Could not resolve control 'Member ID field'. selector LocatorStrategy.NAME_ATTR:'does_not_exist_field' matched 0 elements"
+  }
+}

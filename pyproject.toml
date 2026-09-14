@@ -1,0 +1,15 @@
+[project]
+name = "cua"
+version = "0.1.0"
+description = "Computer-Use Automation System: LLM discovers, artifact captures, deterministic replay invokes."
+requires-python = ">=3.10"
+
+[project.scripts]
+cua = "cua.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
